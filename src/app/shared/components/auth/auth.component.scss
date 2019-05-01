@@ -1,0 +1,22 @@
+.container{
+  width: 300px;
+  height: 300px;
+
+  .info {
+    height: 250px;
+
+    .info-errors{
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .actions-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 200px;
+  }
+
+}
+

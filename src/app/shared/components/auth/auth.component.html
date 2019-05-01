@@ -1,0 +1,34 @@
+<div class="container">
+  <form [formGroup]="authForm" (submit)="action()">
+      <div class="info">
+          <mat-form-field class="example-full-width">
+            <input [formControlName]="'userName'" matInput [placeholder]="authType === Auth.Sign ? 'Username' : 'Username or Email'">
+          </mat-form-field>
+          <mat-form-field *ngIf="authType === Auth.Sign" class="example-full-width">
+            <input [formControlName]="'email'" matInput placeholder="Email">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input [formControlName]="'password'" matInput placeholder="Password">
+          </mat-form-field>
+          <div class="info-errors">
+              <mat-error *ngIf="authForm.errors && authForm.errors['userConflict']">User already exist</mat-error>
+              <mat-error *ngIf="authForm.errors && authForm.errors['invalidData']">Your data is incorrect</mat-error>
+              <mat-error *ngIf="authForm.errors && authForm.errors['emptyFields']">Fill all fields</mat-error>
+          </div>
+      </div>
+
+      <div class="actions-container">
+          <ng-container [ngTemplateOutlet]="authType === Auth.Sign ? sign : log"></ng-container>
+
+          <button type="button" color="accent" mat-raised-button (click)="dialogRef.close()">Cancel</button>
+
+          <ng-template #sign>
+              <button type="submit" color="accent" mat-raised-button>Sign up</button>
+          </ng-template>
+
+          <ng-template #log>
+              <button type="submit" color="accent" mat-raised-button>Login</button>
+          </ng-template>
+        </div>
+  </form>
+</div>

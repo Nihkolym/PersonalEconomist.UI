@@ -6,5 +6,6 @@ export const routes: Route[] = [
     {
         path: 'entry',
         component: EntryComponent,
+        canActivate: [HttpGuard]
     },
 ];

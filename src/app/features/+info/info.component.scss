@@ -1,0 +1,21 @@
+.main-container{
+  padding: 30px;
+  h1{
+    font-size: 48px;
+  }
+  .info{
+    margin-top: 35px;
+    display: flex;
+    align-items: center;
+    .info-text-container{
+      width: 40%;
+      p{
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
+    }
+    .info-movie{
+      margin: 0 auto;
+    }
+  }
+}

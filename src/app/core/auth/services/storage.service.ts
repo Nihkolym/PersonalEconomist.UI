@@ -10,6 +10,14 @@ export class StorageService {
         localStorage.setItem('token', token);
     }
 
+    public get userName(): string {
+      return localStorage.getItem('userName');
+    }
+
+    public set userName(userName: string) {
+        localStorage.setItem('userName', userName);
+    }
+
     public get isAdmin(): boolean {
       return localStorage.getItem('isAdmin') === 'true' && this.token  ? true : false;
     }
@@ -21,5 +29,6 @@ export class StorageService {
     public clearCredentials(): void {
         localStorage.removeItem('token');
         localStorage.removeItem('isAdmin');
+        localStorage.removeItem('userName');
     }
 }

@@ -3,6 +3,7 @@
 @import '../../../personal-economist-theme';
 
 .entry-container{
+  padding-top: 20px;
   .hint{
     padding-left: 20px;
   }
@@ -25,6 +26,9 @@
       }
 
       .image{
+        .uploader{
+          width: 150px;
+        }
         .goal-img{
           width: 100%;
           height: 100%;
@@ -34,6 +38,7 @@
     }
 
     .animals-container{
+      margin-top: 20px;
       width: 70%;
       .animals{
         display: flex;
@@ -69,25 +74,6 @@
     bottom: 0;
     height: 100px;
     width: calc(100% - 20px);
-
-    .next-container{
-      position: absolute;
-      bottom: 40px;
-      right: 40px;
-      cursor: pointer;
-    }
-
-    .next-container:hover::before{
-      content: "";
-      animation-fill-mode: both;
-      animation-duration: 0.4s;
-      animation-name: riseup;
-      height: 85.5px;
-      display: block;
-      position: absolute;
-      top: 0;
-      background: mat-color($app-primary);
-    }
   }
 }
 
@@ -106,21 +92,6 @@
     width: 400px;
     height: 400px;
   }
-}
-
-@keyframes riseup {
-  from {
-    left: 0px;
-    width: 0px;
-  }
-  to {
-    left: -100px;
-    width: 100px;
-  }
-}
-
-.example-full-width{
-  width: 100%;
 }
 
 .example-right-align {

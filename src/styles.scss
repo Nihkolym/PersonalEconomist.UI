@@ -1,0 +1,78 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import './personal-economist-theme';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+*{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+body{
+  background: #B6D7A8;
+}
+
+.material-icons{
+  user-select: none;
+}
+
+.next-container{
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  cursor: pointer;
+}
+
+.next-container:hover::before{
+  content: "";
+  animation-fill-mode: both;
+  animation-duration: 0.4s;
+  animation-name: riseup;
+  height: 85.5px;
+  display: block;
+  position: absolute;
+  top: 0;
+  background: mat-color($app-primary);
+}
+
+@keyframes riseup {
+  from {
+    left: 0px;
+    width: 0px;
+  }
+  to {
+    left: -100px;
+    width: 100px;
+  }
+}
+
+.warn-backdrop{
+  background-color: rgba($color: #000000, $alpha: .5);
+}
+
+.warn-panel{
+  .mat-dialog-container{
+    background-color: #4caf50;
+  }
+}
+
+.auth-backdrop{
+  background-color: #4caf50;
+}
+
+.auth-panel{
+  .mat-dialog-container{
+    background-color: #B6D7A8;
+  }
+}
+
+.example-full-width{
+  width: 100%;
+}
+
+.mat-raised-button{
+  width: 80px;
+}
+

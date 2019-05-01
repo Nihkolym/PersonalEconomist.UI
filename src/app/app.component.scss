@@ -1,0 +1,45 @@
+body {
+  background: #B6D7A8;
+}
+
+.header {
+  background: #4caf50;
+  height: 80px;
+  position: relative;
+  padding: 5px;
+
+  .logo-container{
+    width: 400px;
+    display: inline-block;
+    .logo{
+      margin-left: 30px;
+      margin-top: 5px;
+      height: 60px;
+      width: 60px;
+      background: #B6D7A8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+    }
+  }
+
+  .menu-container{
+    position: absolute;
+    right: 50px;
+    display: flex;
+    align-items: center;
+    height: 75px;
+    top: 0;
+    .menu{
+      .menu-list{
+        list-style: none;
+        display: flex;
+        .menu-item{
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+}

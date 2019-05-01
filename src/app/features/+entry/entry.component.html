@@ -1,39 +1,42 @@
 <div class="entry-container">
-  <h2 class="hint">Please fill the info bellow ;)</h2>
-  <div class="setup-container">
+  <h2 class="hint">Hello {{userName}}. Please fill the info bellow ;)</h2>
+  <form [formGroup]="goalForm" (submit)="onFormSubmit()" class="setup-container">
     <div class="info-container">
       <div class="goal default-input">
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Your Goal">
+          <input [formControlName]="'goal'" matInput placeholder="Your Goal">
+          <mat-error *ngIf="goalForm.get('goal').invalid">Fill Field</mat-error>
         </mat-form-field>
       </div>
       <div class="amount default-input">
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Amount" type="number" class="example-right-align">
+          <input [formControlName]="'amount'" matInput placeholder="Amount" type="number" class="example-right-align">
           <span matPrefix>$&nbsp;</span>
           <span matSuffix>.00</span>
+          <mat-error *ngIf="goalForm.get('amount').invalid">Fill Field</mat-error>
         </mat-form-field>
       </div>
       <div class="image default-input">
-        <input #goalImage (change)="onFileSelected($event)" type="file" [hidden]="true">
+        <input #goalImage (change)="onFileSelected($event)" type="file" hidden>
         <img *ngIf="goalImageSrc" class="goal-img" [src]="goalImageSrc">
-        <button (click)="goalImage.click()" mat-raised-button color="primary">Upload Image</button>
+        <button class="uploader" type="button" (click)="goalImage.click()" mat-raised-button color="primary">Upload Image</button>
       </div>
     </div>
     <div class="animals-container">
       <h2>Choose animal</h2>
       <div class="animals" appChoosableContainer>
-        <div class="animal" appChoosableItem [choosenClass]="'selected-animal'"><img src="../../../assets/animals/fox.gif" alt="dog"></div>
-        <div class="animal" appChoosableItem [choosenClass]="'selected-animal'"><img src="../../../assets/animals/panda.gif" alt="dog"></div>
-        <div class="animal" appChoosableItem [choosenClass]="'selected-animal'"><img src="../../../assets/animals/pinguin.gif" alt="dog"></div>
+        <div (choose)="chooseAnimal(Animal.FOX)" class="animal" appChoosableItem [choosenClass]="'selected-animal'"><img [src]="'../../../assets/animals/' + Animal.FOX" alt="fox"></div>
+        <div (choose)="chooseAnimal(Animal.PANDA)" class="animal" appChoosableItem [choosenClass]="'selected-animal'"><img [src]="'../../../assets/animals/' + Animal.PANDA" alt="panda"></div>
+        <div (choose)="chooseAnimal(Animal.PINGUIN)" class="animal" appChoosableItem [choosenClass]="'selected-animal'"><img [src]="'../../../assets/animals/' + Animal.PINGUIN" alt="pinguin"></div>
       </div>
     </div>
-  </div>
-  <div class="footer">
-    <div class="next-container">
+    <div class="footer">
+      <button #submitBtn type="submit" hidden></button>
+      <div (click)="submitBtn.click()" class="next-container">
         <i style="font-size: 86px;" class="material-icons">arrow_forward</i>
+      </div>
     </div>
-  </div>
+  </form>
 </div>
 
 

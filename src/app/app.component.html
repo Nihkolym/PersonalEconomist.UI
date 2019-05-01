@@ -1,2 +1,24 @@
+<div class="header">
+  <div class="logo-container">
+    <div class="logo">
+      <i style="font-size:36px;" class="material-icons">attach_money</i>
+    </div>
+  </div>
+  <div class="menu-container">
+    <div class="menu">
+      <ul class="menu-list">
+        <li class="menu-item">
+          <button color="accent" (click)="openAuthDialog(Auth.Sign)" mat-raised-button>Sign Up</button>
+        </li>
+        <li class="menu-item">
+          <button color="accent" (click)="openAuthDialog(Auth.Log)" mat-raised-button>Login</button>
+        </li>
+        <li *ngIf="authService.isAuthorized" class="menu-item">
+          <button mat-button (click)="logout()">Logout</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 <router-outlet></router-outlet>
 

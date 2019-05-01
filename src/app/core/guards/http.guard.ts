@@ -6,14 +6,12 @@ import {
   Router,
 } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { AuthService } from '../auth/services/auth.service';
 
 @Injectable()
 export class HttpGuard implements CanActivate {
 
   constructor(
       private _storageService: StorageService,
-      private _authService: AuthService,
       private _router: Router,
   ) { }
 
@@ -23,7 +21,7 @@ export class HttpGuard implements CanActivate {
           return true;
       }
 
-      this._router.navigate(['/entry'], { queryParams: { returnUrl: state.url } });
+      this._router.navigate(['']);
       return false;
   }
 }

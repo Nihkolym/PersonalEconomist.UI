@@ -5,9 +5,9 @@
 
 // Define the theme.
 $app-primary: mat-palette($mat-green);
-$app-accent:  mat-palette($mat-green);
+$app-accent:  mat-palette($mat-green, A100);
 $app-foreground: mat-palette($mat-green);
 
 // Include the theme styles for only specified components.
-$app-theme: mat-light-theme($app-primary, $app-accent );
+$app-theme: mat-light-theme($app-primary, $app-accent);
 @include angular-material-theme($app-theme);
