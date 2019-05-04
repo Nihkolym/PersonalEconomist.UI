@@ -1,0 +1,57 @@
+.payment-container{
+  position: relative;
+  .card-form{
+    .card-container{
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-between;
+      .cards{
+        width: 30%;
+        margin-right: 50px;
+        max-height: 250px;
+        overflow: auto;
+        .card{
+          margin-bottom: 5px;
+          padding: 5px;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          width: 100px;
+          .card-number{
+            margin-left: 5px;
+          }
+          &:hover{
+            @extend .choosenClass
+          }
+        }
+      }
+      .new-card{
+        width: 50%;
+        max-height: 300px;
+      }
+    }
+    .submit-btn{
+      position: absolute;
+      right: 20px;
+      bottom: -60px;
+    }
+  }
+}
+
+.choosenClass{
+  background: #B6D7A8;
+  border-radius: 5px;
+}
+
+.close-icon{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  right: 0;
+  top: 0;
+  &:hover{
+    background: #B6D7A8;
+    border-radius: 50%;
+  }
+}

@@ -1,3 +1,4 @@
+import { HomeModule } from './features/+home/home.module';
 import { HttpGuard } from './core/guards/http.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -12,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorStateMatcher } from '@angular/material';
 import { FormErrorStateMatcher } from './shared/forms/error-matcher';
 import { InfoModule } from './features/+info/info.module';
+import { ProfileModule } from './features/+profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -23,13 +25,16 @@ import { InfoModule } from './features/+info/info.module';
     BrowserModule,
     RouterModule,
     HttpClientModule,
-    EntryModule,
+    EntryModule.forRoot(),
+    ProfileModule.forRoot(),
+    HomeModule.forRoot(),
     InfoModule,
     AppRoutingModule,
     CoreModule.forRoot(),
     SharedModule.forRoot(),
   ],
-  providers: [{provide: ErrorStateMatcher, useClass: FormErrorStateMatcher}, HttpGuard],
+  providers: [
+    {provide: ErrorStateMatcher, useClass: FormErrorStateMatcher}, HttpGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

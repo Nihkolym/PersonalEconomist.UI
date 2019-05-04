@@ -1,0 +1,30 @@
+<div class="home-container">
+  <div class="action-container">
+    <div class="actions">
+        <div class="action" *ngFor="let activity of activities">
+            <button class="activity-btn" [ngStyle]="{ 'backgroundImage': 'url(' + iconPath(activity.image) + ')' }" color="primary" mat-raised-button [matMenuTriggerFor]="menu"></button>
+            <mat-menu #menu="matMenu">
+              <button *ngFor="let item of activity.items" (click)="openPaymentDialog(item)" class="item-button" mat-menu-item>
+                <img width="50" [src]="iconPath(item.image)">
+                <span class="price">${{item.price}}</span>
+                <mat-checkbox (change)="changeItemInQueue($event.checked, item)" (click)="stopPropagation($event)" style="margin-left: 5px;" color="primary"></mat-checkbox>
+              </button>
+            </mat-menu>
+        </div>
+    </div>
+    <div *ngIf="animal" class="animal"><img width="300" height="300" [src]="'../../../assets/animals/' + animal"></div>
+    <div class="item-queue" >
+      <div class="item" *ngFor="let item of itemQueue"><img width="50" [src]="iconPath(item.image)"></div>
+    </div>
+    <div *ngIf="itemQueue.length" style="display: flex; justify-content: center;">
+        <button (click)="openPaymentDialog(itemQueue)" color="primary" style="margin: 0 auto;"  mat-raised-button>Buy All</button>
+    </div>
+  </div>
+  <div class="info-container">
+      <nav mat-tab-nav-bar>
+          <a mat-tab-link routerLink="transactions" routerLinkActive="active">Transactions</a>
+          <a mat-tab-link routerLink="diagrams" routerLinkActive="active">Diagrams</a>
+        </nav>
+      <router-outlet></router-outlet>
+  </div>
+</div>

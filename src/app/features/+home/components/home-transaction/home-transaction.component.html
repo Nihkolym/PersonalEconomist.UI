@@ -1,0 +1,24 @@
+<div class="transaction-container">
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let transaction of transactions">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{transaction.date | date:'medium'}}
+          </mat-panel-title>
+          <mat-panel-description>
+            <span style="font-weight: bold">Card Number: {{transaction.creditCard.cardNumber}}</span>
+          </mat-panel-description>
+
+          <mat-panel-description>
+              <span style="font-weight: bold">${{transaction.amount}}</span>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="transaction-item" *ngFor="let item of transaction.items">
+            <span style="font-weight: bold">{{item.title}}</span>
+            <img width="50" height="50" [src]="iconPath(item.image)" alt="item">
+        </div>
+      </mat-expansion-panel>
+  </mat-accordion>
+
+</div>

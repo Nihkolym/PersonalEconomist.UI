@@ -1,0 +1,14 @@
+.transaction-container{
+  padding: 10px;
+  .mat-expansion-panel{
+    margin-bottom: 5px;
+  }
+  .transaction-item{
+    display: flex;
+    margin-top: 5px;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+

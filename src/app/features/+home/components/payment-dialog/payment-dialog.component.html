@@ -1,0 +1,33 @@
+<div class="payment-container">
+  <h3>Choose saved payment method or enter a new credit card</h3>
+    <form (submit)="onSubmit()" class="card-form" [formGroup]="paymentForm">
+        <div class="card-container">
+      <div appChoosableContainer class="cards">
+        <div *ngFor="let card of cards" (click)="chooseCard(card)" appChoosableItem [choosenClass]="'choosenClass'" class="card">
+          <img width="50" height="50" src="../../../../../assets/card.png" alt="card">
+          <span class="card-number">{{card.cardNumber.slice(-4)}}</span>
+        </div>
+      </div>
+      <div class="new-card">
+        <mat-form-field color="accent" appearance="outline">
+          <mat-label>Enter Card Number</mat-label>
+          <input [formControlName]="'cardNumber'" matInput placeholder="Card Number">
+        </mat-form-field>
+        <mat-form-field color="accent" appearance="outline">
+            <mat-label>Enter Pin code</mat-label>
+            <input [formControlName]="'pinCode'" matInput placeholder="Pin code">
+          </mat-form-field>
+      </div>
+    </div>
+    <div class="footer">
+        <!--  -->
+        <button class="submit-btn" mat-raised-button color="accent">Submit</button>
+    </div>
+    </form>
+    <div class="close-icon">
+        <i (click)="close()" class="material-icons">
+            close
+        </i>
+    </div>
+</div>
+

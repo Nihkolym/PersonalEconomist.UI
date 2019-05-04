@@ -20,7 +20,7 @@ export class AppComponent {
       if (authType === Auth.Sign) {
         this.router.navigate(['/entry']);
       } else {
-        this.router.navigate(['/']);
+        this.router.navigate(['/home']);
       }
     });
   }

@@ -12,6 +12,7 @@
 
 body{
   background: #B6D7A8;
+  height: 100vh;
 }
 
 .material-icons{
@@ -68,6 +69,12 @@ body{
   }
 }
 
+.payment-container{
+  .mat-dialog-container{
+    background: #4caf50;
+  }
+}
+
 .example-full-width{
   width: 100%;
 }
@@ -76,3 +83,21 @@ body{
   width: 80px;
 }
 
+.mat-expansion-panel-header.mat-expanded,
+.mat-expansion-panel,
+.mat-expansion-panel-header.mat-expanded:hover {
+  background: #4caf50;
+}
+
+.mat-expansion-panel-body{
+  background: #b9f6ca;
+}
+
+.mat-menu-content{
+  background: #b9f6ca;
+}
+
+
+.mat-checkbox-inner-container {
+  width: 24px !important; height: 24px !important;
+}

@@ -8,7 +8,7 @@
             <input [formControlName]="'email'" matInput placeholder="Email">
           </mat-form-field>
           <mat-form-field class="example-full-width">
-            <input [formControlName]="'password'" matInput placeholder="Password">
+            <input type="password" [formControlName]="'password'" matInput placeholder="Password">
           </mat-form-field>
           <div class="info-errors">
               <mat-error *ngIf="authForm.errors && authForm.errors['userConflict']">User already exist</mat-error>
