@@ -1,3 +1,21 @@
-<p>
-  home-diagram works!
-</p>
+<div *ngIf="!counters.length" class="no-counters">
+  <h1>No Counters Found</h1>
+</div>
+<div *ngIf="!!counters.length" style="margin-left: 50px">
+  <mat-form-field>
+    <mat-select (selectionChange)="createChart($event.value)" [value]="counters[0]">
+        <mat-option *ngFor="let counter of counters" [value]="counter">
+          {{counter.type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+</div>
+
+<div class="chart-holder">
+  <canvas #lineChart>{{ chart }}</canvas>
+</div>
+
+
+
+
+

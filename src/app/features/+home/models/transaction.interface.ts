@@ -5,7 +5,7 @@ export interface ITransaction {
   id?: string;
   creditCardId?: string;
   amount?: number;
-  date?: Date;
+  date?: string | Date;
   creditCard?: ICreditCard;
   items?: Item[];
 }

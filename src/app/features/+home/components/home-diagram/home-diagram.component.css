@@ -1,0 +1,11 @@
+:host {
+  padding: 50px;
+}
+
+.chart-holder{
+  height: 200px;
+}
+
+.no-counters{
+  margin: 20px;
+}

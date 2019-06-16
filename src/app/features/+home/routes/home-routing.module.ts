@@ -1,3 +1,4 @@
+import { UserResolver } from './../resolvers/user.resolver';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { routes } from './home.routes';
@@ -6,5 +7,6 @@ import { routes } from './home.routes';
     imports: [
         RouterModule.forRoot(routes),
     ],
+    providers: [UserResolver]
 })
 export class HomeRoutingModule { }

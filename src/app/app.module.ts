@@ -14,11 +14,13 @@ import { ErrorStateMatcher } from '@angular/material';
 import { FormErrorStateMatcher } from './shared/forms/error-matcher';
 import { InfoModule } from './features/+info/info.module';
 import { ProfileModule } from './features/+profile/profile.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
     AppComponent
-
   ],
   imports: [
     BrowserAnimationsModule,
@@ -32,6 +34,7 @@ import { ProfileModule } from './features/+profile/profile.module';
     AppRoutingModule,
     CoreModule.forRoot(),
     SharedModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     {provide: ErrorStateMatcher, useClass: FormErrorStateMatcher}, HttpGuard],

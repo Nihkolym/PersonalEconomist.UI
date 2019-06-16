@@ -15,6 +15,9 @@
       margin: 60px auto;
       display: flex;
       justify-content: center;
+      &:hover{
+        cursor: pointer;
+      }
     }
     .actions{
       justify-content: space-around;
@@ -44,6 +47,10 @@
 
 .active{
   border-bottom: 3px solid #4caf50;
+}
+
+.spinner{
+  margin: 200px auto;
 }
 
 

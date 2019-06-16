@@ -1,0 +1,15 @@
+.info-container{
+  height: 200px;
+  justify-content: space-between;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  .goal-container{
+    display: flex;
+    align-items: center;
+  }
+}
+
+canvas{
+  height: 400px !important;
+}

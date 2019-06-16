@@ -1,8 +1,8 @@
-import { Router, ActivatedRoute } from '@angular/router';
 import { ITransaction } from './../../models/transaction.interface';
-import { TransactionService } from './../../services/transaction.service';
+import { TransactionService } from '../../services/transaction.service';
 import { Component, OnInit } from '@angular/core';
 import { AppSettings } from 'src/app/core/settings';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home-transaction',
@@ -11,25 +11,16 @@ import { AppSettings } from 'src/app/core/settings';
 })
 export class HomeTransactionComponent implements OnInit {
 
-  public transactions: ITransaction[] = [];
+  public transactions$: Observable<ITransaction[]> = new Observable<ITransaction[]>();
 
   public iconPath(name: string) {
     return `${AppSettings.images}/${name}`;
   }
 
-
-  constructor(private transactionService: TransactionService, private router: ActivatedRoute) { }
+  constructor(private transactionService: TransactionService) { }
 
   ngOnInit() {
-    this.router.queryParamMap.subscribe(() => {
-      this.loadTransactions();
-    });
-  }
-
-  public loadTransactions() {
-    this.transactionService.getUserTransactions().subscribe(transactions => {
-      this.transactions = transactions;
-    });
+    this.transactions$ = this.transactionService.transactions$;
   }
 
 }

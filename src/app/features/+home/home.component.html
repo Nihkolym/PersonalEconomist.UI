@@ -12,7 +12,7 @@
             </mat-menu>
         </div>
     </div>
-    <div *ngIf="animal" class="animal"><img width="300" height="300" [src]="'../../../assets/animals/' + animal"></div>
+    <div *ngIf="animal" class="animal"><img (click)="openChangeAnimalDialog()" width="300" height="300" [src]="'../../../assets/animals/' + animal"></div>
     <div class="item-queue" >
       <div class="item" *ngFor="let item of itemQueue"><img width="50" [src]="iconPath(item.image)"></div>
     </div>
@@ -22,9 +22,17 @@
   </div>
   <div class="info-container">
       <nav mat-tab-nav-bar>
+          <a mat-tab-link routerLink="info" routerLinkActive="active">Info</a>
           <a mat-tab-link routerLink="transactions" routerLinkActive="active">Transactions</a>
           <a mat-tab-link routerLink="diagrams" routerLinkActive="active">Diagrams</a>
         </nav>
-      <router-outlet></router-outlet>
+      <ng-container *ngTemplateOutlet="spinner ? matSpinner : content"></ng-container>
+
+      <ng-template #matSpinner>
+          <mat-spinner class="spinner"></mat-spinner>
+      </ng-template>
+      <ng-template #content>
+          <router-outlet></router-outlet>
+      </ng-template>
   </div>
 </div>

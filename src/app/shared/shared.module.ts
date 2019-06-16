@@ -7,6 +7,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { MaterialModule } from './material/material.module';
 import { WarnDialogComponent } from './dialogs/warn-dialog/warn-dialog.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AnimalsComponent } from './dialogs/animals/animals.component';
 
 const DIRECTIVES = [
   ChoosableItemDirective,
@@ -15,7 +16,8 @@ const DIRECTIVES = [
 
 const ENTRY_COMPONENTS = [
   WarnDialogComponent,
-  AuthComponent
+  AuthComponent,
+  AnimalsComponent
 ];
 
 @NgModule({
@@ -27,7 +29,7 @@ const ENTRY_COMPONENTS = [
   ],
   declarations: [
     ...DIRECTIVES,
-    ...ENTRY_COMPONENTS
+    ...ENTRY_COMPONENTS,
   ],
   exports: [
     MaterialModule,

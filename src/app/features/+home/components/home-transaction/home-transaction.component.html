@@ -1,6 +1,6 @@
 <div class="transaction-container">
     <mat-accordion>
-      <mat-expansion-panel *ngFor="let transaction of transactions">
+      <mat-expansion-panel *ngFor="let transaction of transactions$ | async">
         <mat-expansion-panel-header>
           <mat-panel-title>
             {{transaction.date | date:'medium'}}

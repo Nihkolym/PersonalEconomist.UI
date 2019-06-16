@@ -1,0 +1,5 @@
+<div class="animals" appChoosableContainer>
+  <div (choose)="close(Animal.FOX)" class="animal" appChoosableItem [choosenClass]="'selected-animal'"><img [src]="'../../../../assets/animals/' + Animal.FOX" alt="fox"></div>
+  <div (choose)="close(Animal.PANDA)" class="animal" appChoosableItem [choosenClass]="'selected-animal'"><img [src]="'../../../../assets/animals/' + Animal.PANDA" alt="panda"></div>
+  <div (choose)="close(Animal.PINGUIN)" class="animal" appChoosableItem [choosenClass]="'selected-animal'"><img [src]="'../../../../assets/animals/' + Animal.PINGUIN" alt="pinguin"></div>
+</div>

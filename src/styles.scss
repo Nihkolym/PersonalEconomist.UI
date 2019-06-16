@@ -2,6 +2,7 @@
 
 @import './personal-economist-theme';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+// @import '~bootstrap/dist/css/bootstrap.min.css';
 
 *{
   font-family: 'Open Sans', sans-serif;
@@ -100,4 +101,20 @@ body{
 
 .mat-checkbox-inner-container {
   width: 24px !important; height: 24px !important;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4caf50;
+  border-radius: 10px;
 }

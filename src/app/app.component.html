@@ -1,6 +1,6 @@
 <div class="header">
   <div class="logo-container">
-    <div class="logo">
+    <div style="cursor: pointer;" class="logo" (click)="openInfoPage()">
       <i style="font-size:36px;" class="material-icons">attach_money</i>
     </div>
   </div>
@@ -13,8 +13,25 @@
         <li class="menu-item">
           <button *ngIf="!authService.isAuthorized" color="accent" (click)="openAuthDialog(Auth.Log)" mat-raised-button>Login</button>
         </li>
+
         <li *ngIf="authService.isAuthorized" class="menu-item">
-          <button mat-raised-button color="accent"  (click)="logout()">Logout</button>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>menu</mat-icon>
+              <div class="notifyIcon" *ngIf="isReached$ | async"></div>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button (click)="openHomePage()" mat-menu-item>
+                  <mat-icon>home</mat-icon>
+                  <span>Home</span>
+                </button>
+                <button (click)="openCreditCardDialog()" mat-menu-item [disabled]="!(isReached$ | async)">
+                  <mat-icon>check</mat-icon>
+                  <span>Reach Gole</span>
+                </button>
+                <button mat-menu-item (click)="logout()">
+                    <mat-icon>exit_to_app</mat-icon>Logout
+                </button>
+              </mat-menu>
         </li>
       </ul>
     </div>
